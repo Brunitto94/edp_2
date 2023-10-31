@@ -1,2 +1,5 @@
 TP_Evaluation_de_performances_2.pdf
 bench
+
+*.ipynb
+.ipynb_checkpoints/
