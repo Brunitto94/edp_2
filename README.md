@@ -32,8 +32,17 @@ python3 graph.py variable_percentage.json
 python3 graph.py split_q3_1proc.json
 ```
 
-Bandwidth:  41802
+Bandwidth:  42403
+
 Bandwidth:  60452
 
 ## Question 4
+
+```bash
+cd question_4
+python3 graph.py threaded.json -o question_4.png
+```
+
+![](./question_4/mean_question_4.png)
+![](./question_4/cumulative_question_4.png)
 

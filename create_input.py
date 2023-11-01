@@ -4,7 +4,7 @@ num_jobs=9
 f = open(sys.argv[1]+".config","w")
 f.write("[global]\n")
 f.write("runtime=60\n")
-f.write("direct=0\n")
+f.write("direct=1\n")
 f.write("directory=./\n")
 f.write("filesize=1G\n")
 f.write(f"blocksize=16K\n")
