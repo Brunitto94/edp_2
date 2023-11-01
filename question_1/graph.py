@@ -34,29 +34,31 @@ seq_read_bw, seq_write_bw = get_rw_bw(seq_data)
 rand_read_bw, rand_write_bw = get_rw_bw(rand_data)
 
 # First plot. Two figures, one for sequential the other for random
-fig, (ax_read, ax_write) = plt.subplots(1, 2, figsize=(14, 7))
+fig, (ax_read, ax_write) = plt.subplots(1, 2, figsize=(12, 6))
 
 x = np.arange(0, 101, 12.5)
 ax_read.plot(x, seq_read_bw, marker="o", label="sequential")
 ax_read.plot(x, rand_read_bw, marker="o", label="random")
 
 ax_read.set_title("Bandwidth for I/O operations with 100 to 0% of reads")
-ax_read.set_xlabel("Percentage of reads")
-ax_read.set_ylabel("Bandwidth (KiB/s)")
+ax_read.set_xlabel("Percentage of reads",fontsize=18)
+ax_read.set_ylabel("Bandwidth (KiB/s)",fontsize=18)
 ax_read.set_xticks(x)
 ax_read.set_xticklabels([f"{100 - p}%" for p in x])
-ax_read.legend()
+ax_read.legend(fontsize=18)
+fig.tight_layout()
 #ax.set_yscale("log")
 
 ax_write.plot(x, seq_write_bw, marker="o", label="sequential")
 ax_write.plot(x, rand_write_bw, marker="o", label="random")
 
 ax_write.set_title("Bandwidth for I/O operations with 0 to 100% of writes")
-ax_write.set_xlabel("Percentage of writes")
-ax_write.set_ylabel("Bandwidth (KiB/s)")
+ax_write.set_xlabel("Percentage of writes",fontsize=18)
+ax_write.set_ylabel("Bandwidth (KiB/s)",fontsize=18)
 ax_write.set_xticks(x)
 ax_write.set_xticklabels([f"{p}%" for p in x])
-ax_write.legend()
+ax_write.legend(fontsize=18)
+fig.tight_layout()
 
 if args.output is not None:
     plt.savefig("separated_" + args.output, dpi=300)
@@ -65,7 +67,7 @@ else:
 
 
 # Second plot, all lines on the same plot + log scale
-fig, ax = plt.subplots(1, figsize=(14, 7), layout="constrained")
+fig, ax = plt.subplots(1, figsize=(8, 6), layout="constrained")
 
 x = np.arange(0, 101, 12.5)
 
@@ -75,14 +77,15 @@ b=ax.plot(x, rand_read_bw, marker="o", label="random read")#, color="#ff7f0e")
 c=ax.plot(x, seq_write_bw, marker="o", label="sequential write")#, color="#1f77b4", linestyle="dashed")
 d=ax.plot(x, rand_write_bw, marker="o", label="random write")#, color="#ff7f0e", linestyle="dashed")
 
-ax.set_title("Bandwidth for I/O operations with 100 to 0% of reads")
-ax.set_xlabel("Percentage of reads")
-ax.set_ylabel("Bandwidth (KiB/s)")
+ax.set_title("Bandwidth for I/O operations with 100 to 0% of reads",fontsize=18)
+ax.set_xlabel("Percentage of reads",fontsize=18)
+ax.set_ylabel("Bandwidth (KiB/s)",fontsize=18)
 ax.set_xticks(x)
 ax.set_xticklabels([f"{p}%" for p in x])
 ax.set_yscale("symlog")
 ax.set_ylim(0, 1.1 * ax.get_ylim()[1])
-ax.legend(loc="lower center")
+ax.legend(loc="lower center",fontsize=18)
+fig.tight_layout()
 
 if args.output is not None:
     plt.savefig("merged_" + args.output, dpi=300)
