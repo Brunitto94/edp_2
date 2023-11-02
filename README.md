@@ -28,11 +28,14 @@ python3 graph.py size_q2_1proc.json -o blocksize_alt_question_2.png
 
 ```bash
 cd question_3
-python3 graph.py variable_percentage.json
-python3 graph.py split_q3_1proc.json
+python3 graph.py variable_percentage.json -o question_3.png
+python3 bandwidth.py variable_percentage.json
+python3 bandwidth.py split_q3_1proc.json
 ```
 
-Bandwidth:  42403
+![](./question_3/question_3.png)
+
+Bandwidth:  43759
 
 Bandwidth:  60452
 

@@ -55,17 +55,19 @@ write_means = [summed_bw / int(nb_proc) for nb_proc, summed_bw in stats["summed_
 
 x = np.arange(len(nb_procs))
 
+plt.style.use("../plot_params.mplstyle")
+
 fig, (ax_read, ax_write) = plt.subplots(1, 2, figsize=(14, 7), layout="constrained")
 
 ax_read.bar(x, read_means)
-ax_read.set_title("Mean read bandwidth for jobs with 1 to 8 parallel processes")
+ax_read.set_title("Mean read bandwidth for jobs with 1 to 8 processes", wrap=True)
 ax_read.set_xlabel("Number of processes")
 ax_read.set_ylabel("Mean bandwidth (KiB/s)")
 ax_read.set_xticks(x)
 ax_read.set_xticklabels(nb_procs)
 
 ax_write.bar(x, write_means)
-ax_write.set_title("Mean write bandwidth for jobs with 1 to 8 parallel processes")
+ax_write.set_title("Mean write bandwidth for jobs with 1 to 8 processes", wrap=True)
 ax_write.set_xlabel("Number of processes")
 ax_write.set_ylabel("Mean bandwidth (KiB/s)")
 ax_write.set_xticks(x)
@@ -84,13 +86,13 @@ summed_write_bw = stats["summed_write"]
 fig, (ax_read, ax_write) = plt.subplots(1, 2, figsize=(14, 7), layout="constrained")
 
 ax_read.plot(x, summed_read_bw.values(), marker="o")
-ax_read.set_title("Cumulative read bandwidth for jobs with 1 to 8 parallel processes")
+ax_read.set_title("Cumulative read bandwidth for jobs with 1 to 8 parallel processes", wrap=True)
 ax_read.set_xlabel("Number of processes")
 ax_read.set_ylabel("Bandwidth (KiB/s)")
 ax_read.set_xticks(x)
 
 ax_write.plot(x, summed_write_bw.values(), marker="o")
-ax_write.set_title("Cumulative write bandwidth for jobs with 1 to 8 parallel processes")
+ax_write.set_title("Cumulative write bandwidth for jobs with 1 to 8 parallel processes", wrap=True)
 ax_write.set_xlabel("Number of processes")
 ax_write.set_ylabel("Bandwidth (KiB/s)")
 ax_write.set_xticks(x)
