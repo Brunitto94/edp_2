@@ -34,9 +34,12 @@ x = np.arange(1, len(completion_latency) + 1)
 
 # ax.plot(x, completion_latency, marker="o", label="Completion latency")
 ax.plot(x, latency, marker="o")#, label="Latency")
-ax.set_title("Latencies for a task with different request sizes")
-ax.set_xlabel("Decile")
-ax.set_ylabel("Latency (ns)")
+# ax.set_title("Latencies for a task with different request sizes")
+# ax.set_xlabel("Decile")
+# ax.set_ylabel("Latency (ns)")
+ax.set_title("Latence pour un tâche composée de requêtes de plusieurs tailles", wrap=True)
+ax.set_xlabel("Décile")
+ax.set_ylabel("Latence (ns)")
 # ax.legend()
 
 if args.output is not None:

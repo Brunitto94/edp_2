@@ -41,17 +41,18 @@ x = np.arange(len(var_read_bw))
 
 ax_read.plot(x, var_read_bw, marker="o")
 
-ax_read.set_title("Read bandwidth for request sizes up to 1MB")
-ax_read.set_xlabel("Request size (Bytes)")
-ax_read.set_ylabel("Bandwidth (KiB/s)")
+ax_read.set_title("Bande passante en lecture pour des tailles de requêtes allant jusqu'à 1Mo", wrap=True)
+ax_read.set_xlabel("Taille de requête (Octets)")
+ax_read.set_ylabel("Bande passante (Kio/s)")
 ax_read.set_xticks(x)
 ax_read.set_xticklabels(block_sizes)
 
 ax_write.plot(x, var_write_bw, marker="o")
 
-ax_write.set_title("Write bandwidth for request sizes up to 1MB")
-ax_write.set_xlabel("Request size (Bytes)")
-ax_write.set_ylabel("Bandwidth (KiB/s)")
+# ax_write.set_title("Write bandwidth for request sizes up to 1MB")
+ax_write.set_title("Bande passante en écriture pour des tailles de requêtes allant jusqu'à 1Mo", wrap=True)
+ax_write.set_xlabel("Taille de requête (Octets)")
+ax_write.set_ylabel("Bande passante (Kio/s)")
 ax_write.set_xticks(x)
 ax_write.set_xticklabels(block_sizes)
 
