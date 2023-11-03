@@ -81,9 +81,10 @@ ax.set_xlabel("Percentage of reads")
 ax.set_ylabel("Bandwidth (KiB/s)")
 ax.set_xticks(x)
 ax.set_xticklabels([f"{p}%" for p in x])
-ax.set_yscale("symlog")
+# ax.set_yscale("symlog")
 ax.set_ylim(0, 1.1 * ax.get_ylim()[1])
-ax.legend(loc="lower center")
+# ax.legend(loc="lower center")
+ax.legend()
 
 if args.output is not None:
     plt.savefig("merged_" + args.output, dpi=300)
